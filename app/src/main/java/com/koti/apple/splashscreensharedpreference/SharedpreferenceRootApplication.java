@@ -7,6 +7,8 @@ import android.preference.PreferenceManager;
 import java.net.CookieHandler;
 import java.net.CookieManager;
 
+// We need to mention SharedpreferenceRootApplication class in AndroidManifest.xml file like below
+// android:name=".SharedpreferenceRootApplication"
 public class SharedpreferenceRootApplication extends Application {
 
     public static SharedPreferences mPref;

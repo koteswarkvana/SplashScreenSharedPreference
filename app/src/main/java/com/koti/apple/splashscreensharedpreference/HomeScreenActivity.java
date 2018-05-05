@@ -10,6 +10,8 @@ public class HomeScreenActivity extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.home_screen_activity);
+
+        // Receiving stored data from the Shared preference.
         boolean isscreenDisplayed = SharedpreferenceRootApplication.mPref.getBoolean(Constants.SPLASH_SCREEN_DISPLAYED_BOOLEN_VAL, false);
         String strVal = SharedpreferenceRootApplication.mPref.getString(Constants.STRING_VAL, "");
         float floatVal = SharedpreferenceRootApplication.mPref.getFloat(Constants.FLOAT_VAL, 0);

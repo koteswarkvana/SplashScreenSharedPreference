@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+public class SplashActivity extends Activity {
 
     /**
      * Duration of wait
@@ -18,20 +18,22 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.splash_screen_activity);
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                /* Create an Intent that will start the HomeScreenActivity. */
+                // Stored data types data in Shared preference.
                 SharedpreferenceRootApplication.mEditor.putBoolean(Constants.SPLASH_SCREEN_DISPLAYED_BOOLEN_VAL, true).commit();
                 SharedpreferenceRootApplication.mEditor.putString(Constants.STRING_VAL, "koti").commit();
                 SharedpreferenceRootApplication.mEditor.putFloat(Constants.FLOAT_VAL, 27.07F).commit();
                 SharedpreferenceRootApplication.mEditor.putLong(Constants.LONG_VAL, 1234567890).commit();
                 SharedpreferenceRootApplication.mEditor.putInt(Constants.INT_VAL, 12345678).commit();
-                startActivity(new Intent(MainActivity.this, HomeScreenActivity.class));
+                /* Create an Intent that will start the HomeScreenActivity. */
+                startActivity(new Intent(SplashActivity.this, HomeScreenActivity.class));
+                // finish or close the SplashActivity
                 finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
